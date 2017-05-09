@@ -63,5 +63,11 @@ class Julia3GMQTT(octoprint.plugin.StartupPlugin):
 	def __del__(self):
 		self.julia.disconnect()
 		self.julia.loop_stop()
+	def get_template_configs(self):
+		'''
+		Bindings for the jinja files
+		:return:
+		'''
+		return [dict(type="settings", custom_bindings=False)]
 __plugin_name="juliamqtt"
 __plugin_implementations__ = [Julia3GMQTT()]
